@@ -5,198 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Feelings Clubhouse</title>
     
+    <!-- GOOGLE ADSENSE CODE -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2432934863963389" crossorigin="anonymous"></script>
+    <!-- END GOOGLE ADSENSE CODE -->
+
+    <!-- Loading Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- BUILT-IN STYLES (Works on ALL Browsers) --- */
-        
+        /* --- BUILT-IN STYLES --- */
         :root {
-            --brand-blue: #3B82F6;
-            --brand-yellow: #F59E0B;
-            --brand-green: #10B981;
-            --brand-pink: #EC4899;
-            --brand-red: #EF4444;
-            --brand-indigo: #6366F1;
-            --brand-orange: #F97316;
-            --brand-teal: #14B8A6;
-            --bg-color: #F3F4F6;
-            --text-main: #1F2937;
-            --text-muted: #4B5563;
+            --brand-blue: #3B82F6; --brand-yellow: #F59E0B; --brand-green: #10B981;
+            --brand-pink: #EC4899; --brand-red: #EF4444; --brand-indigo: #6366F1;
+            --brand-orange: #F97316; --brand-teal: #14B8A6; --bg-color: #F3F4F6;
+            --text-main: #1F2937; --text-muted: #4B5563;
         }
-
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Baloo 2', cursive;
-            line-height: 1.2;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Baloo 2', cursive; line-height: 1.2; }
 
         /* Header */
-        header {
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            padding: 1rem 0;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--brand-blue);
-            text-decoration: none;
-        }
-
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
+        header { background: white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 50; padding: 1rem 0; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--brand-blue); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: var(--text-muted); transition: color 0.2s; }
         .nav-links a:hover { color: var(--brand-blue); }
 
-        /* Main Layout */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
+        /* Language Button */
+        .lang-btn {
+            background: var(--brand-blue); color: white; border: none;
+            padding: 0.5rem 1rem; border-radius: 999px; font-weight: bold;
+            cursor: pointer; transition: transform 0.2s;
         }
+        .lang-btn:hover { transform: scale(1.05); background: #2563EB; }
 
+        /* Main Layout */
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; }
         .welcome-section { text-center: center; margin-bottom: 4rem; }
         .welcome-title { font-size: 3rem; margin-bottom: 1rem; color: #1f2937; }
         .welcome-text { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
         .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; font-weight: bold; }
 
-        /* Grid & Cards */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+        /* Cards */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .card { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); text-align: center; cursor: pointer; transition: transform 0.2s; }
         .card:hover { transform: translateY(-5px) scale(1.02); }
-
         .emoji-icon { font-size: 4rem; margin-bottom: 1rem; }
         .card-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
         
         /* Colors */
-        .text-blue { color: var(--brand-blue); }
-        .text-yellow { color: var(--brand-yellow); }
-        .text-green { color: var(--brand-green); }
-        .text-pink { color: var(--brand-pink); }
-        .text-red { color: var(--brand-red); }
-        .text-indigo { color: var(--brand-indigo); }
-        .text-orange { color: var(--brand-orange); }
-        .text-teal { color: var(--brand-teal); }
+        .text-blue { color: var(--brand-blue); } .text-yellow { color: var(--brand-yellow); }
+        .text-green { color: var(--brand-green); } .text-pink { color: var(--brand-pink); }
+        .text-red { color: var(--brand-red); } .text-indigo { color: var(--brand-indigo); }
+        .text-orange { color: var(--brand-orange); } .text-teal { color: var(--brand-teal); }
 
         /* Bullying Section */
-        .bullying-section {
-            background: white;
-            border-radius: 1rem;
-            padding: 3rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
+        .bullying-section { background: white; border-radius: 1rem; padding: 3rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .split-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         @media (min-width: 768px) { .split-layout { grid-template-columns: 1fr 1fr; } }
-
         .info-box { padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #ccc; }
         .bg-pink-light { background-color: #FCE7F3; border-color: var(--brand-pink); }
         .bg-blue-light { background-color: #DBEAFE; border-color: var(--brand-blue); }
 
-        /* Buttons */
-        .btn-pledge {
-            background-color: var(--brand-green);
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 9999px;
-            cursor: pointer;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background 0.2s;
-        }
+        .btn-pledge { background-color: var(--brand-green); color: white; font-weight: bold; font-size: 1.1rem; padding: 1rem 2rem; border: none; border-radius: 9999px; cursor: pointer; margin-top: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s; }
         .btn-pledge:hover { background-color: #059669; }
         .btn-pledge.clicked { background-color: var(--brand-pink); cursor: default; }
 
         /* Footer */
-        footer {
-            background-color: #1F2937;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
+        footer { background-color: #1F2937; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
         footer a { color: #9CA3AF; text-decoration: none; font-size: 0.9rem; }
         footer a:hover { color: white; text-decoration: underline; }
 
         /* Modals */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-            padding: 1rem;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s; padding: 1rem; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-content {
-            background: white; padding: 2rem; border-radius: 1rem;
-            max-width: 500px; width: 100%;
-            position: relative; text-align: center;
-            transform: scale(0.8);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-height: 90vh; overflow-y: auto;
-        }
+        .modal-content { background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; width: 100%; position: relative; text-align: center; transform: scale(0.8); transition: transform 0.3s; max-height: 90vh; overflow-y: auto; }
         .modal-overlay.active .modal-content { transform: scale(1); }
-        .close-btn {
-            position: absolute; top: 1rem; right: 1rem;
-            background: none; border: none;
-            font-size: 2rem; cursor: pointer; color: #9CA3AF; line-height: 1;
-        }
+        .close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: #9CA3AF; line-height: 1; }
         .close-btn:hover { color: black; }
 
         ul { text-align: left; margin-top: 1rem; }
@@ -204,34 +93,15 @@
 
         /* Activity Styles */
         .star-points { display: flex; justify-content: center; gap: 0.5rem; margin: 1.5rem 0; }
-        .star-dot {
-            width: 2rem; height: 2rem;
-            border-radius: 50%;
-            border: 4px solid #D1D5DB;
-            transition: all 0.3s;
-        }
-        .action-btn {
-            width: 100%; padding: 1rem; border-radius: 9999px;
-            border: none; font-weight: bold; font-size: 1.1rem;
-            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 1rem;
-        }
+        .star-dot { width: 2rem; height: 2rem; border-radius: 50%; border: 4px solid #D1D5DB; transition: all 0.3s; }
+        .action-btn { width: 100%; padding: 1rem; border-radius: 9999px; border: none; font-weight: bold; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 1rem; }
         .btn-yellow { background: var(--brand-yellow); color: #1F2937; }
         .btn-green { background: var(--brand-green); color: white; }
         .btn-pink { background: var(--brand-pink); color: white; }
-
         .color-picker { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .color-btn {
-            width: 3rem; height: 3rem; border-radius: 50%;
-            border: 2px solid #eee; cursor: pointer; transition: transform 0.2s;
-        }
+        .color-btn { width: 3rem; height: 3rem; border-radius: 50%; border: 2px solid #eee; cursor: pointer; transition: transform 0.2s; }
         .color-btn:hover { transform: scale(1.1); }
-        .drawing-canvas {
-            width: 100%; height: 200px;
-            background-color: #F3F4F6;
-            border: 4px solid #E5E7EB;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s;
-        }
+        .drawing-canvas { width: 100%; height: 200px; background-color: #F3F4F6; border: 4px solid #E5E7EB; border-radius: 0.5rem; transition: background-color 0.3s; }
     </style>
 </head>
 <body>
@@ -240,50 +110,54 @@
         <nav>
             <a href="#" class="logo">The Feelings Clubhouse</a>
             <div class="nav-links">
-                <a href="#feelings">My Feelings</a>
-                <a href="#activities">Fun Activities</a>
-                <a href="#bullying">Be a Buddy</a>
+                <a href="#feelings" data-key="nav_feelings">My Feelings</a>
+                <a href="#activities" data-key="nav_activities">Fun Activities</a>
+                <a href="#bullying" data-key="nav_buddy">Be a Buddy</a>
+                <button id="lang-btn" class="lang-btn" onclick="toggleLanguage()">Español</button>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="welcome-section">
-            <h1 class="welcome-title">Welcome, Friends!</h1>
-            <p class="welcome-text">It's great to see you! This is a place to learn about our BIG feelings and how to be a great friend to everyone.</p>
+            <h1 class="welcome-title" data-key="welcome_title">Welcome, Friends!</h1>
+            <p class="welcome-text" data-key="welcome_text">It's great to see you! This is a place to learn about our BIG feelings and how to be a great friend to everyone.</p>
         </section>
 
+        <!-- FEELINGS SECTION -->
         <section id="feelings">
-            <h2 class="section-title" style="color: var(--brand-blue);">It's Okay to Feel...</h2>
+            <h2 class="section-title" style="color: var(--brand-blue);" data-key="section_feelings">It's Okay to Feel...</h2>
             <div class="grid-container">
-                <div class="card" onclick="openModal('happy-modal')"><div class="emoji-icon">😄</div><h3 class="card-title text-yellow">Happy!</h3><p>Like sunshine inside! Share it with a smile!</p></div>
-                <div class="card" onclick="openModal('sad-modal')"><div class="emoji-icon">😢</div><h3 class="card-title text-blue">Sad</h3><p>Like a rainy cloud. It's okay to be sad.</p></div>
-                <div class="card" onclick="openModal('mad-modal')"><div class="emoji-icon">😡</div><h3 class="card-title text-red">Mad</h3><p>Like a volcano. Don't hurt others.</p></div>
-                <div class="card" onclick="openModal('scared-modal')"><div class="emoji-icon">😨</div><h3 class="card-title text-indigo">Scared</h3><p>Like seeing a shadow. Talk to a grown-up.</p></div>
-                <div class="card" onclick="openModal('silly-modal')"><div class="emoji-icon">🤪</div><h3 class="card-title text-orange">Silly</h3><p>Giggles you can't stop! Is it a good time?</p></div>
-                <div class="card" onclick="openModal('shy-modal')"><div class="emoji-icon">😊</div><h3 class="card-title text-teal">Shy</h3><p>Wanting to hide? That's totally fine.</p></div>
+                <div class="card" onclick="openModal('happy-modal')"><div class="emoji-icon">😄</div><h3 class="card-title text-yellow" data-key="happy">Happy!</h3><p data-key="happy_desc">Like sunshine inside! Share it with a smile!</p></div>
+                <div class="card" onclick="openModal('sad-modal')"><div class="emoji-icon">😢</div><h3 class="card-title text-blue" data-key="sad">Sad</h3><p data-key="sad_desc">Like a rainy cloud. It's okay to be sad.</p></div>
+                <div class="card" onclick="openModal('mad-modal')"><div class="emoji-icon">😡</div><h3 class="card-title text-red" data-key="mad">Mad</h3><p data-key="mad_desc">Like a volcano. Don't hurt others.</p></div>
+                <div class="card" onclick="openModal('scared-modal')"><div class="emoji-icon">😨</div><h3 class="card-title text-indigo" data-key="scared">Scared</h3><p data-key="scared_desc">Like seeing a shadow. Talk to a grown-up.</p></div>
+                <div class="card" onclick="openModal('silly-modal')"><div class="emoji-icon">🤪</div><h3 class="card-title text-orange" data-key="silly">Silly</h3><p data-key="silly_desc">Giggles you can't stop! Is it a good time?</p></div>
+                <div class="card" onclick="openModal('shy-modal')"><div class="emoji-icon">😊</div><h3 class="card-title text-teal" data-key="shy">Shy</h3><p data-key="shy_desc">Wanting to hide? That's totally fine.</p></div>
             </div>
         </section>
 
+        <!-- ACTIVITIES SECTION -->
         <section id="activities">
-            <h2 class="section-title" style="color: var(--brand-green);">Try These Cool Activities!</h2>
+            <h2 class="section-title" style="color: var(--brand-green);" data-key="section_activities">Try These Cool Activities!</h2>
             <div class="grid-container">
-                <div class="card" onclick="openModal('star-modal')"><div class="emoji-icon">⭐</div><h3 class="card-title">The 5-Breath Star</h3><p>Trace your fingers and breathe. Feel calmer?</p></div>
-                <div class="card" onclick="openModal('drawing-modal')"><div class="emoji-icon">🎨</div><h3 class="card-title">My Feeling Drawing</h3><p>Pick a color that matches your feeling.</p></div>
-                <div class="card" onclick="openModal('wiggle-modal')"><div class="emoji-icon">💃</div><h3 class="card-title">Wiggle & Shake</h3><p>Stand up and shake the "sillys" out!</p></div>
+                <div class="card" onclick="openModal('star-modal')"><div class="emoji-icon">⭐</div><h3 class="card-title" data-key="star_title">The 5-Breath Star</h3><p data-key="star_desc">Trace your fingers and breathe. Feel calmer?</p></div>
+                <div class="card" onclick="openModal('drawing-modal')"><div class="emoji-icon">🎨</div><h3 class="card-title" data-key="draw_title">My Feeling Drawing</h3><p data-key="draw_desc">Pick a color that matches your feeling.</p></div>
+                <div class="card" onclick="openModal('wiggle-modal')"><div class="emoji-icon">💃</div><h3 class="card-title" data-key="wiggle_title">Wiggle & Shake</h3><p data-key="wiggle_desc">Stand up and shake the "sillys" out!</p></div>
             </div>
         </section>
 
+        <!-- BULLYING SECTION -->
         <section id="bullying" class="bullying-section">
-            <h2 class="section-title text-pink">Be a Buddy, Not a Bully</h2>
+            <h2 class="section-title text-pink" data-key="buddy_title">Be a Buddy, Not a Bully</h2>
             <div class="split-layout">
                 <div class="info-box bg-pink-light">
-                    <h3 class="text-pink" style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">Bullying Hurts Others...</h3>
-                    <p>It makes them feel sad, scared, and alone. It's like a rain cloud that won't go away.</p>
+                    <h3 class="text-pink" style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;" data-key="bully_hurts">Bullying Hurts Others...</h3>
+                    <p data-key="bully_hurts_text">It makes them feel sad, scared, and alone. It's like a rain cloud that won't go away.</p>
                 </div>
                 <div class="info-box bg-blue-light">
-                    <h3 class="text-blue" style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">...But It Hurts YOU, Too!</h3>
-                    <ul>
+                    <h3 class="text-blue" style="font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;" data-key="hurts_you">...But It Hurts YOU, Too!</h3>
+                    <ul id="hurts_you_list">
                         <li><strong>You lose friends.</strong> It's hard to trust someone unkind.</li>
                         <li><strong>It builds a bad habit.</strong> Kindness is a skill, like soccer.</li>
                         <li><strong>It feels yucky inside.</strong> Making others feel bad hurts you too.</li>
@@ -291,35 +165,35 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <h3 class="text-green" style="font-size: 1.5rem; font-weight: bold;">What Can You Do?</h3>
-                <p style="max-width: 600px; margin: 1rem auto; color: var(--text-muted);">Include others. Ask them to play. If you see something mean, tell a grown-up.</p>
+                <h3 class="text-green" style="font-size: 1.5rem; font-weight: bold;" data-key="what_can_do">What Can You Do?</h3>
+                <p style="max-width: 600px; margin: 1rem auto; color: var(--text-muted);" data-key="what_can_do_text">Include others. Ask them to play. If you see something mean, tell a grown-up.</p>
                 <button id="pledge-btn" class="btn-pledge" onclick="takePledge()">I Pledge to Be a Buddy!</button>
-                <p id="pledge-msg" class="text-green" style="display:none; font-weight: bold; font-size: 1.2rem; margin-top: 1rem;">Thanks for being a Buddy! 🎉</p>
+                <p id="pledge-msg" class="text-green" style="display:none; font-weight: bold; font-size: 1.2rem; margin-top: 1rem;" data-key="pledge_thanks">Thanks for being a Buddy! 🎉</p>
             </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 The Feelings Clubhouse.</p>
-        <a href="#" onclick="openModal('about-modal'); return false;">About This Site</a>
+        <a href="#" onclick="openModal('about-modal'); return false;" data-key="about_link">About This Site</a>
     </footer>
 
-    <div id="happy-modal" class="modal-overlay" onclick="closeModal(event, 'happy-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('happy-modal')">&times;</button><div class="emoji-icon">😄</div><h2 class="text-yellow">Feeling Happy!</h2><p>Awesome! Like sunshine inside.</p><ul><li>Tell a silly joke.</li><li>Sing a song LOUD!</li><li>Give a high-five!</li></ul></div></div>
-    <div id="sad-modal" class="modal-overlay" onclick="closeModal(event, 'sad-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('sad-modal')">&times;</button><div class="emoji-icon">😢</div><h2 class="text-blue">Feeling Sad</h2><p>It's okay. Like a rain cloud visiting.</p><ul><li>Talk to a grown-up.</li><li>Hug a teddy bear.</li><li>Draw your feeling.</li></ul></div></div>
-    <div id="mad-modal" class="modal-overlay" onclick="closeModal(event, 'mad-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('mad-modal')">&times;</button><div class="emoji-icon">😡</div><h2 class="text-red">Feeling Mad</h2><p>Whoa, a volcano! Don't hurt anyone.</p><ul><li>Stomp your feet.</li><li>Do the 5-Breath Star.</li><li>Take a break.</li></ul></div></div>
-    <div id="scared-modal" class="modal-overlay" onclick="closeModal(event, 'scared-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('scared-modal')">&times;</button><div class="emoji-icon">😨</div><h2 class="text-indigo">Feeling Scared</h2><p>Your body is saying "Be careful!"</p><ul><li>Tell a grown-up.</li><li>Turn on a light.</li><li>Take deep breaths.</li></ul></div></div>
-    <div id="silly-modal" class="modal-overlay" onclick="closeModal(event, 'silly-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('silly-modal')">&times;</button><div class="emoji-icon">🤪</div><h2 class="text-orange">Feeling Silly</h2><p>You've got the giggles!</p><ul><li>Make funny faces.</li><li>Do a wiggly dance.</li><li>Make sure it's not quiet time.</li></ul></div></div>
-    <div id="shy-modal" class="modal-overlay" onclick="closeModal(event, 'shy-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('shy-modal')">&times;</button><div class="emoji-icon">😊</div><h2 class="text-teal">Feeling Shy</h2><p>Feeling quiet? That's okay.</p><ul><li>Just watch and listen.</li><li>Smile or wave.</li><li>Join when you're ready.</li></ul></div></div>
+    <!-- MODALS -->
+    <div id="happy-modal" class="modal-overlay" onclick="closeModal(event, 'happy-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('happy-modal')">&times;</button><div class="emoji-icon">😄</div><h2 class="text-yellow" data-key="happy_m_title">Feeling Happy!</h2><p data-key="happy_m_desc">Awesome! Like sunshine inside.</p><ul id="happy_list"><li>Tell a silly joke.</li><li>Sing a song LOUD!</li><li>Give a high-five!</li></ul></div></div>
+    <div id="sad-modal" class="modal-overlay" onclick="closeModal(event, 'sad-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('sad-modal')">&times;</button><div class="emoji-icon">😢</div><h2 class="text-blue" data-key="sad_m_title">Feeling Sad</h2><p data-key="sad_m_desc">It's okay. Like a rain cloud visiting.</p><ul id="sad_list"><li>Talk to a grown-up.</li><li>Hug a teddy bear.</li><li>Draw your feeling.</li></ul></div></div>
+    <div id="mad-modal" class="modal-overlay" onclick="closeModal(event, 'mad-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('mad-modal')">&times;</button><div class="emoji-icon">😡</div><h2 class="text-red" data-key="mad_m_title">Feeling Mad</h2><p data-key="mad_m_desc">Whoa, a volcano! Don't hurt anyone.</p><ul id="mad_list"><li>Stomp your feet.</li><li>Do the 5-Breath Star.</li><li>Take a break.</li></ul></div></div>
+    <div id="scared-modal" class="modal-overlay" onclick="closeModal(event, 'scared-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('scared-modal')">&times;</button><div class="emoji-icon">😨</div><h2 class="text-indigo" data-key="scared_m_title">Feeling Scared</h2><p data-key="scared_m_desc">Your body is saying "Be careful!"</p><ul id="scared_list"><li>Tell a grown-up.</li><li>Turn on a light.</li><li>Take deep breaths.</li></ul></div></div>
+    <div id="silly-modal" class="modal-overlay" onclick="closeModal(event, 'silly-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('silly-modal')">&times;</button><div class="emoji-icon">🤪</div><h2 class="text-orange" data-key="silly_m_title">Feeling Silly</h2><p data-key="silly_m_desc">You've got the giggles!</p><ul id="silly_list"><li>Make funny faces.</li><li>Do a wiggly dance.</li><li>Make sure it's not quiet time.</li></ul></div></div>
+    <div id="shy-modal" class="modal-overlay" onclick="closeModal(event, 'shy-modal')"><div class="modal-content"><button class="close-btn" onclick="closeModalBtn('shy-modal')">&times;</button><div class="emoji-icon">😊</div><h2 class="text-teal" data-key="shy_m_title">Feeling Shy</h2><p data-key="shy_m_desc">Feeling quiet? That's okay.</p><ul id="shy_list"><li>Just watch and listen.</li><li>Smile or wave.</li><li>Join when you're ready.</li></ul></div></div>
 
+    <!-- Activity Modals -->
     <div id="star-modal" class="modal-overlay" onclick="closeModal(event, 'star-modal')">
         <div class="modal-content">
             <button class="close-btn" onclick="closeModalBtn('star-modal')">&times;</button>
             <div class="emoji-icon">⭐</div>
-            <h2>The 5-Breath Star</h2>
-            <p>Click the button. Breathe IN on yellow, OUT on green.</p>
-            <div class="star-points">
-                <div id="s1" class="star-dot"></div><div id="s2" class="star-dot"></div><div id="s3" class="star-dot"></div><div id="s4" class="star-dot"></div><div id="s5" class="star-dot"></div>
-            </div>
+            <h2 data-key="star_title">The 5-Breath Star</h2>
+            <p data-key="star_instr">Click the button. Breathe IN on yellow, OUT on green.</p>
+            <div class="star-points"><div id="s1" class="star-dot"></div><div id="s2" class="star-dot"></div><div id="s3" class="star-dot"></div><div id="s4" class="star-dot"></div><div id="s5" class="star-dot"></div></div>
             <button id="breath-btn" class="action-btn btn-yellow" onclick="doBreath()">Click to Breathe IN</button>
             <p id="breath-txt" style="margin-top:1rem; color:#666;">Ready?</p>
         </div>
@@ -329,8 +203,8 @@
         <div class="modal-content">
             <button class="close-btn" onclick="closeModalBtn('drawing-modal')">&times;</button>
             <div class="emoji-icon">🎨</div>
-            <h2>My Feeling Drawing</h2>
-            <p>Click a color to fill the canvas!</p>
+            <h2 data-key="draw_title">My Feeling Drawing</h2>
+            <p data-key="draw_instr">Click a color to fill the canvas!</p>
             <div class="color-picker">
                 <div class="color-btn" style="background: #EF4444;" onclick="setColor('#EF4444')"></div>
                 <div class="color-btn" style="background: #3B82F6;" onclick="setColor('#3B82F6')"></div>
@@ -347,8 +221,8 @@
         <div class="modal-content">
             <button class="close-btn" onclick="closeModalBtn('wiggle-modal')">&times;</button>
             <div class="emoji-icon">💃</div>
-            <h2>Wiggle & Shake</h2>
-            <p>Wiggle for 10 seconds! Ready?</p>
+            <h2 data-key="wiggle_title">Wiggle & Shake</h2>
+            <p data-key="wiggle_instr">Wiggle for 10 seconds! Ready?</p>
             <h3 id="wiggle-timer" style="font-size: 3rem; margin: 1rem 0; display:none; color: #EC4899;">10</h3>
             <button id="wiggle-btn" class="action-btn btn-pink" onclick="startWiggle()">Start Wiggling!</button>
         </div>
@@ -357,31 +231,136 @@
     <div id="about-modal" class="modal-overlay" onclick="closeModal(event, 'about-modal')">
         <div class="modal-content" style="text-align: left;">
             <button class="close-btn" onclick="closeModalBtn('about-modal')">&times;</button>
-            <h3>About The Feelings Clubhouse</h3>
-            <p>Welcome! This is a safe place for kids to learn about emotions.</p>
-            <p>Our mission is to help kids understand that all feelings are okay.</p>
-            <p style="font-size: 0.8rem; color: #888; margin-top: 1rem;">This site is for educational purposes.</p>
+            <h3 data-key="about_title">About The Feelings Clubhouse</h3>
+            <p data-key="about_p1">Welcome! This is a safe place for kids to learn about emotions.</p>
+            <p data-key="about_p2">Our mission is to help kids understand that all feelings are okay.</p>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 1rem;" data-key="about_p3">This site is for educational purposes.</p>
         </div>
     </div>
 
     <script>
-        // Modal Logic
-        function openModal(id) {
-            document.getElementById(id).classList.add('active');
-        }
-        function closeModal(event, id) {
-            if (event.target.classList.contains('modal-overlay')) {
-                document.getElementById(id).classList.remove('active');
+        // --- TRANSLATION DATA ---
+        const content = {
+            en: {
+                nav_feelings: "My Feelings", nav_activities: "Fun Activities", nav_buddy: "Be a Buddy",
+                welcome_title: "Welcome, Friends!", welcome_text: "It's great to see you! This is a place to learn about our BIG feelings and how to be a great friend to everyone.",
+                section_feelings: "It's Okay to Feel...",
+                happy: "Happy!", happy_desc: "Like sunshine inside! Share it with a smile!",
+                sad: "Sad", sad_desc: "Like a rainy cloud. It's okay to be sad.",
+                mad: "Mad", mad_desc: "Like a volcano. Don't hurt others.",
+                scared: "Scared", scared_desc: "Like seeing a shadow. Talk to a grown-up.",
+                silly: "Silly", silly_desc: "Giggles you can't stop! Is it a good time?",
+                shy: "Shy", shy_desc: "Wanting to hide? That's totally fine.",
+                section_activities: "Try These Cool Activities!",
+                star_title: "The 5-Breath Star", star_desc: "Trace your fingers and breathe. Feel calmer?",
+                draw_title: "My Feeling Drawing", draw_desc: "Pick a color that matches your feeling.",
+                wiggle_title: "Wiggle & Shake", wiggle_desc: "Stand up and shake the \"sillys\" out!",
+                buddy_title: "Be a Buddy, Not a Bully",
+                bully_hurts: "Bullying Hurts Others...", bully_hurts_text: "It makes them feel sad, scared, and alone. It's like a rain cloud that won't go away.",
+                hurts_you: "...But It Hurts YOU, Too!",
+                hurts_you_list: "<li><strong>You lose friends.</strong> It's hard to trust someone unkind.</li><li><strong>It builds a bad habit.</strong> Kindness is a skill, like soccer.</li><li><strong>It feels yucky inside.</strong> Making others feel bad hurts you too.</li>",
+                what_can_do: "What Can You Do?", what_can_do_text: "Include others. Ask them to play. If you see something mean, tell a grown-up.",
+                pledge_btn: "I Pledge to Be a Buddy!", pledge_done: "I'm a Buddy!", pledge_thanks: "Thanks for being a Buddy! 🎉",
+                about_link: "About This Site", about_title: "About The Feelings Clubhouse", about_p1: "Welcome! This is a safe place for kids to learn about emotions.", about_p2: "Our mission is to help kids understand that all feelings are okay.", about_p3: "This site is for educational purposes.",
+                // Modals
+                happy_m_title: "Feeling Happy!", happy_m_desc: "Awesome! Like sunshine inside.", happy_list: "<li>Tell a silly joke.</li><li>Sing a song LOUD!</li><li>Give a high-five!</li>",
+                sad_m_title: "Feeling Sad", sad_m_desc: "It's okay. Like a rain cloud visiting.", sad_list: "<li>Talk to a grown-up.</li><li>Hug a teddy bear.</li><li>Draw your feeling.</li>",
+                mad_m_title: "Feeling Mad", mad_m_desc: "Whoa, a volcano! Don't hurt anyone.", mad_list: "<li>Stomp your feet.</li><li>Do the 5-Breath Star.</li><li>Take a break.</li>",
+                scared_m_title: "Feeling Scared", scared_m_desc: "Your body is saying \"Be careful!\"", scared_list: "<li>Tell a grown-up.</li><li>Turn on a light.</li><li>Take deep breaths.</li>",
+                silly_m_title: "Feeling Silly", silly_m_desc: "You've got the giggles!", silly_list: "<li>Make funny faces.</li><li>Do a wiggly dance.</li><li>Make sure it's not quiet time.</li>",
+                shy_m_title: "Feeling Shy", shy_m_desc: "Feeling quiet? That's okay.", shy_list: "<li>Just watch and listen.</li><li>Smile or wave.</li><li>Join when you're ready.</li>",
+                star_instr: "Click the button. Breathe IN on yellow, OUT on green.",
+                draw_instr: "Click a color to fill the canvas!",
+                wiggle_instr: "Wiggle for 10 seconds! Ready?",
+                // Activity buttons
+                breath_in: "Click to Breathe IN", breath_out: "Breathe OUT", breath_done: "Great job! You finished!", breath_again: "Do it Again", breath_ready: "Ready?", breath_txt_in: "Breathe IN...", breath_txt_out: "Breathe OUT...",
+                wiggle_btn: "Start Wiggling!", wiggle_done: "DONE!", wiggle_again: "Wiggle Again"
+            },
+            es: {
+                nav_feelings: "Mis Sentimientos", nav_activities: "Actividades", nav_buddy: "Sé un Amigo",
+                welcome_title: "¡Bienvenidos, Amigos!", welcome_text: "¡Qué bueno verte! Este es un lugar para aprender sobre nuestros GRANDES sentimientos y cómo ser un buen amigo.",
+                section_feelings: "Está Bien Sentir...",
+                happy: "¡Feliz!", happy_desc: "¡Como sol por dentro! ¡Compártelo con una sonrisa!",
+                sad: "Triste", sad_desc: "Como una nube de lluvia. Está bien estar triste.",
+                mad: "Enojado", mad_desc: "Como un volcán. No lastimes a otros.",
+                scared: "Asustado", scared_desc: "Como ver una sombra. Habla con un adulto.",
+                silly: "Tonto", silly_desc: "¡Risitas que no paran! ¿Es un buen momento?",
+                shy: "Tímido", shy_desc: "¿Quieres esconderte? Está totalmente bien.",
+                section_activities: "¡Prueba Estas Actividades!",
+                star_title: "La Estrella de 5 Respiraciones", star_desc: "Traza tus dedos y respira. ¿Te sientes mejor?",
+                draw_title: "Dibujo de mi Sentimiento", draw_desc: "Elige un color que combine con tu sentimiento.",
+                wiggle_title: "¡Muévete y Sacúdete!", wiggle_desc: "¡Levántate y sacúdete las tonterías!",
+                buddy_title: "Sé un Amigo, No un Bravucón",
+                bully_hurts: "El Acoso Lastima a Otros...", bully_hurts_text: "Los hace sentir tristes y solos. Es como una nube de lluvia que no se va.",
+                hurts_you: "...¡Pero También te Lastima a TI!",
+                hurts_you_list: "<li><strong>Pierdes amigos.</strong> Es difícil confiar en alguien malo.</li><li><strong>Crea un mal hábito.</strong> La bondad es una habilidad, como el fútbol.</li><li><strong>Se siente feo por dentro.</strong> Hacer sentir mal a otros te hace sentir mal a ti.</li>",
+                what_can_do: "¿Qué Puedes Hacer?", what_can_do_text: "Incluye a otros. Invítalos a jugar. Si ves algo malo, dile a un adulto.",
+                pledge_btn: "¡Prometo ser un Amigo!", pledge_done: "¡Soy un Amigo!", pledge_thanks: "¡Gracias por ser un Amigo! 🎉",
+                about_link: "Sobre Este Sitio", about_title: "Sobre The Feelings Clubhouse", about_p1: "¡Bienvenido! Este es un lugar seguro para que los niños aprendan sobre emociones.", about_p2: "Nuestra misión es ayudar a los niños a entender que todos los sentimientos están bien.", about_p3: "Este sitio es para fines educativos.",
+                // Modals
+                happy_m_title: "¡Sintiéndose Feliz!", happy_m_desc: "¡Genial! Como sol por dentro.", happy_list: "<li>Cuenta un chiste tonto.</li><li>¡Canta una canción FUERTE!</li><li>¡Choca esos cinco!</li>",
+                sad_m_title: "Sintiéndose Triste", sad_m_desc: "Está bien. Como una nube de lluvia visitando.", sad_list: "<li>Habla con un adulto.</li><li>Abraza un oso de peluche.</li><li>Dibuja tu sentimiento.</li>",
+                mad_m_title: "Sintiéndose Enojado", mad_m_desc: "¡Wow, un volcán! No lastimes a nadie.", mad_list: "<li>Pisotea fuerte.</li><li>Haz la Estrella de 5 Respiraciones.</li><li>Tómate un descanso.</li>",
+                scared_m_title: "Sintiéndose Asustado", scared_m_desc: "Tu cuerpo dice \"¡Ten cuidado!\"", scared_list: "<li>Dile a un adulto.</li><li>Enciende una luz.</li><li>Respira profundo.</li>",
+                silly_m_title: "Sintiéndose Tonto", silly_m_desc: "¡Tienes risitas!", silly_list: "<li>Haz caras graciosas.</li><li>Haz un baile loco.</li><li>Asegúrate de que no sea hora de silencio.</li>",
+                shy_m_title: "Sintiéndose Tímido", shy_m_desc: "¿Te sientes callado? Está bien.", shy_list: "<li>Solo mira y escucha.</li><li>Sonríe o saluda.</li><li>Únete cuando estés listo.</li>",
+                star_instr: "Haz clic en el botón. Inhala en amarillo, Exhala en verde.",
+                draw_instr: "¡Haz clic en un color para llenar el lienzo!",
+                wiggle_instr: "¡Muévete por 10 segundos! ¿Listo?",
+                // Activity buttons
+                breath_in: "Clic para Inhalar", breath_out: "Exhalar", breath_done: "¡Gran trabajo!", breath_again: "Hacerlo de nuevo", breath_ready: "¿Listo?", breath_txt_in: "Inhala...", breath_txt_out: "Exhala...",
+                wiggle_btn: "¡Empezar a Moverse!", wiggle_done: "¡LISTO!", wiggle_again: "Moverse de nuevo"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            const btn = document.getElementById('lang-btn');
+            btn.innerText = currentLang === 'en' ? 'Español' : 'English';
+            
+            // Update all data-key elements
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (content[currentLang][key]) {
+                    el.innerHTML = content[currentLang][key];
+                }
+            });
+
+            // Update dynamic buttons if they are visible/active
+            const breathBtn = document.getElementById('breath-btn');
+            const breathTxt = document.getElementById('breath-txt');
+            if(breathBtn.innerText.includes("Breathe") || breathBtn.innerText.includes("Inhalar") || breathBtn.innerText.includes("Exhalar")) {
+                 // Reset star text if in middle of animation or just generic reset
+                 if(breathStep === 0) {
+                     breathBtn.innerText = content[currentLang].breath_in;
+                     breathTxt.innerText = content[currentLang].breath_ready;
+                 }
+            }
+
+            const wiggleBtn = document.getElementById('wiggle-btn');
+            if(wiggleBtn.style.display !== 'none' && wiggleBtn.innerText !== "Wiggle Again") {
+                 wiggleBtn.innerText = content[currentLang].wiggle_btn;
+            }
+            
+            const pledgeBtn = document.getElementById('pledge-btn');
+            if (!pledgeBtn.classList.contains('clicked')) {
+                pledgeBtn.innerText = content[currentLang].pledge_btn;
+            } else {
+                pledgeBtn.innerText = content[currentLang].pledge_done;
             }
         }
-        function closeModalBtn(id) {
-            document.getElementById(id).classList.remove('active');
-        }
+
+        // Modal Logic
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(event, id) { if (event.target.classList.contains('modal-overlay')) document.getElementById(id).classList.remove('active'); }
+        function closeModalBtn(id) { document.getElementById(id).classList.remove('active'); }
 
         // Pledge Logic
         function takePledge() {
             const btn = document.getElementById('pledge-btn');
-            btn.innerText = "I'm a Buddy!";
+            btn.innerText = content[currentLang].pledge_done;
             btn.classList.add('clicked');
             document.getElementById('pledge-msg').style.display = 'block';
         }
@@ -392,55 +371,39 @@
             const btn = document.getElementById('breath-btn');
             const txt = document.getElementById('breath-txt');
             const points = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'), document.getElementById('s4'), document.getElementById('s5')];
-            
             const pointIndex = Math.floor(breathStep / 2);
             const isIn = breathStep % 2 === 0;
 
             if (pointIndex < 5) {
                 if (isIn) {
-                    points[pointIndex].style.borderColor = '#F59E0B'; // Yellow border
-                    points[pointIndex].style.background = '#F59E0B'; // Yellow bg
-                    btn.innerText = "Breathe OUT";
-                    btn.className = "action-btn btn-green";
-                    txt.innerText = "Breathe IN...";
+                    points[pointIndex].style.borderColor = '#F59E0B'; points[pointIndex].style.background = '#F59E0B';
+                    btn.innerText = content[currentLang].breath_out; btn.className = "action-btn btn-green"; txt.innerText = content[currentLang].breath_txt_in;
                 } else {
-                    points[pointIndex].style.borderColor = '#10B981'; // Green border
-                    points[pointIndex].style.background = '#10B981'; // Green bg
-                    btn.innerText = "Breathe IN";
-                    btn.className = "action-btn btn-yellow";
-                    txt.innerText = "Breathe OUT...";
+                    points[pointIndex].style.borderColor = '#10B981'; points[pointIndex].style.background = '#10B981';
+                    btn.innerText = content[currentLang].breath_in; btn.className = "action-btn btn-yellow"; txt.innerText = content[currentLang].breath_txt_out;
                 }
                 breathStep++;
             } else {
-                txt.innerText = "Great job! You finished!";
-                btn.innerText = "Do it Again";
-                breathStep = 0;
-                points.forEach(p => { p.style.background = 'transparent'; p.style.borderColor = '#D1D5DB'; });
+                txt.innerText = content[currentLang].breath_done; btn.innerText = content[currentLang].breath_again;
+                breathStep = 0; points.forEach(p => { p.style.background = 'transparent'; p.style.borderColor = '#D1D5DB'; });
             }
         }
 
         // Drawing Logic
-        function setColor(color) {
-            document.getElementById('canvas-box').style.backgroundColor = color;
-        }
+        function setColor(color) { document.getElementById('canvas-box').style.backgroundColor = color; }
 
         // Wiggle Logic
         function startWiggle() {
             const btn = document.getElementById('wiggle-btn');
             const timer = document.getElementById('wiggle-timer');
             let seconds = 10;
-            
-            btn.style.display = 'none';
-            timer.style.display = 'block';
-            timer.innerText = seconds;
-
+            btn.style.display = 'none'; timer.style.display = 'block'; timer.innerText = seconds;
             const interval = setInterval(() => {
-                seconds--;
-                timer.innerText = seconds;
+                seconds--; timer.innerText = seconds;
                 if (seconds <= 0) {
                     clearInterval(interval);
-                    timer.innerText = "DONE!";
-                    btn.innerText = "Wiggle Again";
+                    timer.innerText = content[currentLang].wiggle_done;
+                    btn.innerText = content[currentLang].wiggle_again;
                     btn.style.display = 'block';
                 }
             }, 1000);
