@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Buddy Certificate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Baloo 2', cursive;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .certificate-container {
+            background: white;
+            width: 1000px; /* Landscape width */
+            height: 700px; /* Landscape height */
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 20px solid #fff;
+            outline: 10px dashed #3B82F6; /* Blue dashed border */
+        }
+
+        .inner-border {
+            border: 4px solid #F59E0B; /* Yellow inner line */
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #3B82F6;
+            margin: 0;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #6B7280;
+            margin-top: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .name-line {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            width: 70%;
+            border-bottom: 4px solid #1F2937;
+        }
+
+        .name-label {
+            display: block;
+            font-size: 1.2rem;
+            color: #9CA3AF;
+            margin-top: 10px;
+        }
+
+        .pledge-text {
+            font-size: 1.8rem;
+            color: #10B981;
+            max-width: 80%;
+            margin: 20px auto;
+            line-height: 1.4;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 60px;
+        }
+
+        .sign-line {
+            width: 40%;
+            border-top: 2px solid #1F2937;
+            padding-top: 10px;
+            font-size: 1.2rem;
+            color: #6B7280;
+        }
+
+        /* Print Button - Hides when printing */
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #EC4899;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Baloo 2', cursive;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        
+        .print-btn:hover { transform: scale(1.1); }
+
+        @media print {
+            body { background: none; -webkit-print-color-adjust: exact; }
+            .certificate-container { width: 100%; height: 100%; box-shadow: none; margin: 0; page-break-inside: avoid; }
+            .print-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="certificate-container">
+        <div class="inner-border">
+            <!-- Decor Icons -->
+            <div style="font-size: 3rem; position: absolute; top: 60px; left: 60px;">⭐</div>
+            <div style="font-size: 3rem; position: absolute; top: 60px; right: 60px;">⭐</div>
+            <div style="font-size: 3rem; position: absolute; bottom: 60px; left: 60px;">🎈</div>
+            <div style="font-size: 3rem; position: absolute; bottom: 60px; right: 60px;">🎨</div>
+
+            <h1 id="cert-title">Official Buddy</h1>
+            <div class="subtitle" id="cert-subtitle">This certifies that</div>
+
+            <!-- Blank line for writing name -->
+            <div class="name-line"></div>
+            <div class="subtitle" id="cert-action">Is officially a Pledge Buddy!</div>
+
+            <p class="pledge-text" id="cert-pledge">"I promise to be kind, include others, and be a good friend to everyone at school."</p>
+
+            <div class="footer-row">
+                <div class="sign-line" id="cert-date">Date</div>
+                <div class="sign-line">The Feelings Clubhouse</div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Certificate</button>
+
+    <script>
+        // Check URL for language
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+
+        if (lang === 'es') {
+            document.getElementById('cert-title').innerText = "Amigo Oficial";
+            document.getElementById('cert-subtitle').innerText = "Esto certifica que";
+            document.getElementById('cert-action').innerText = "¡Es oficialmente un Amigo!";
+            document.getElementById('cert-pledge').innerText = "\"Prometo ser amable, incluir a otros y ser un buen amigo con todos en la escuela.\"";
+            document.getElementById('cert-date').innerText = "Fecha";
+            document.querySelector('.print-btn').innerText = "🖨️ Imprimir Certificado";
+        }
+    </script>
+
+</body>
+</html>
