@@ -332,7 +332,6 @@
             const breathBtn = document.getElementById('breath-btn');
             const breathTxt = document.getElementById('breath-txt');
             if(breathBtn.innerText.includes("Breathe") || breathBtn.innerText.includes("Inhalar") || breathBtn.innerText.includes("Exhalar")) {
-                 // Reset star text if in middle of animation or just generic reset
                  if(breathStep === 0) {
                      breathBtn.innerText = content[currentLang].breath_in;
                      breathTxt.innerText = content[currentLang].breath_ready;
@@ -363,6 +362,9 @@
             btn.innerText = content[currentLang].pledge_done;
             btn.classList.add('clicked');
             document.getElementById('pledge-msg').style.display = 'block';
+            
+            // OPEN CERTIFICATE in new tab, passing the language!
+            window.open('certificate.html?lang=' + currentLang, '_blank');
         }
 
         // Star Logic
